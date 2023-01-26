@@ -61,7 +61,7 @@ $application = new Application($container);
 try {
     // Handle the request
     $url = $_SERVER['REQUEST_URI'];
-    $url = str_replace('tutorial', '', $url);
+    $url = str_replace('phalcon-tutorial', '', $url);
     $url = str_replace('//', '/', $url);
     $lala = $application->handle($url);
 

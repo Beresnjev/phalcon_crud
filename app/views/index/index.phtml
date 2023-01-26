@@ -1,35 +1,71 @@
-<h1>Hello!</h1>
+<h1>Welcome to FunnyAnekdots.ee!</h1>
 
-<a href="/tutorial/signup">Sign Up Here!</a>
+<!--<a href="/phalcon-tutorial/signup">Sign Up Here!</a>-->
+<!---->
+<?php
+//if ($users->count() > 0) {
+//    ?>
+<!--    <table class="table table-bordered table-hover">-->
+<!--        <thead class="thead-light">-->
+<!--        <tr>-->
+<!--            <th>#</th>-->
+<!--            <th>Name</th>-->
+<!--            <th>Email</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <hr>-->
+<!--        <tfoot>-->
+<!--        <tr>-->
+<!--            <td colspan="3">Users quantity: --><?php //echo $users->count(); ?><!--</td>-->
+<!--        </tr>-->
+<!--        </tfoot>-->
+<!--        <tbody>-->
+<!--        --><?php //foreach ($users as $user) { ?>
+<!--            <tr>-->
+<!--                <td>--><?php //echo $user->id; ?><!--</td>-->
+<!--                <td>--><?php //echo $user->name; ?><!--</td>-->
+<!--                <td>--><?php //echo $user->email; ?><!--</td>-->
+<!--            </tr>-->
+<!--        --><?php //} ?>
+<!--        </tbody>-->
+<!--    </table>-->
+<!--    --><?php
+//}
+//?>
+
+<a href="/phalcon-tutorial/anekdot-post">Post your anekdot here!</a>
 
 <?php
-
-
-if ($users->count() > 0) {
+if ($anekdots->count() == 0) {
+    ?>
+    <h3>No anekdots is here....</h3>
+    <?php
+} else {
     ?>
     <table class="table table-bordered table-hover">
         <thead class="thead-light">
         <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
+            <th>Anekdot number</th>
+            <th>Author</th>
+            <th>Anekdot</th>
         </tr>
         </thead>
         <hr>
-        <tfoot>
-        <tr>
-            <td colspan="3">Users quantity: <?php echo $users->count(); ?></td>
-        </tr>
-        </tfoot>
         <tbody>
-        <?php foreach ($users as $user) { ?>
+        <?php foreach ($anekdots as $anekdot) { ?>
             <tr>
-                <td><?php echo $user->id; ?></td>
-                <td><?php echo $user->name; ?></td>
-                <td><?php echo $user->email; ?></td>
+                <td><?php echo $anekdot->id; ?></td>
+                <td><?php echo $anekdot->author; ?></td>
+                <td><?php echo $anekdot->text; ?></td>
             </tr>
         <?php } ?>
         </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="3">Anekdots quantity: <?php echo $anekdot->count(); ?></td>
+        </tr>
+        </tfoot>
     </table>
     <?php
 }
+?>

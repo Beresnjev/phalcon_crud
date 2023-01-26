@@ -1,0 +1,15 @@
+<?php
+
+echo $message;
+
+?>
+<?php if(! $success){?>
+    <form action="/phalcon-tutorial/anekdot-post">
+        <button type="submit">Try again</button>
+    </form>
+<?php } ?>
+<br>
+<form action="/phalcon-tutorial">
+    <button type="submit">Go back and read some anekdots</button>
+</form>
+

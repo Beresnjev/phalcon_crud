@@ -1,0 +1,9 @@
+<h1>Type your anekdot and info below:</h1>
+
+<form action="anekdot-post/post" method="post" class="input" name="name">
+    <label for="name">Your name</label><br>
+    <?php echo $this->tag->inputText("author"); ?><br>
+    <label for="text">Your anekdot</label><br>
+    <?php echo $this->tag->inputText("text"); ?><br>
+    <?php echo $this->tag->inputSubmit('PostAnekdot'); ?>
+</form>

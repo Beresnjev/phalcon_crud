@@ -32,6 +32,5 @@ class SignupController extends Controller
 
         // passing a message to the view
         $this->view->message = $message;
-        $this->view->lalal = $message;
     }
 }
