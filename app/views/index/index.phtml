@@ -1,0 +1,35 @@
+<h1>Hello!</h1>
+
+<a href="/tutorial/signup">Sign Up Here!</a>
+
+<?php
+
+
+if ($users->count() > 0) {
+    ?>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <hr>
+        <tfoot>
+        <tr>
+            <td colspan="3">Users quantity: <?php echo $users->count(); ?></td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <?php foreach ($users as $user) { ?>
+            <tr>
+                <td><?php echo $user->id; ?></td>
+                <td><?php echo $user->name; ?></td>
+                <td><?php echo $user->email; ?></td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+    <?php
+}
