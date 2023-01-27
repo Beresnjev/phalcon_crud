@@ -36,7 +36,7 @@ $container->set(
     'url',
     function () {
         $url = new Lalala();
-        $url->setBaseUri('/tutorial/');
+        $url->setBaseUri('/phalcon-tutorial/');
         return $url;
     }
 );

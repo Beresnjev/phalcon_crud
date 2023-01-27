@@ -2,8 +2,7 @@
 
 use Phalcon\Mvc\Controller;
 
-class AnekdotPostController extends Controller
-{
+class AnekdotPostController extends Controller {
     public function indexAction()
     {
 
