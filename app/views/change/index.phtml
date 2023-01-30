@@ -1,0 +1,12 @@
+
+
+<h1>Change section</h1>
+<p>Change text of anekdot:</p>
+
+<?php
+echo $this->tag->form(["action" => "change/save", "method" => "post", "class" => "input", "name" => "Save"]);
+
+echo $this->tag->inputText("Text", $anekdot->text); ?>
+<p>
+    <?php echo $this->tag->inputSubmit($anekdot->id, "save"); ?>
+</p>

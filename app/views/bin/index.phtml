@@ -1,1 +1,58 @@
+<?php use Phalcon\Tag; ?>
+
 <h1>Welcome to bin section!</h1>
+
+<a href="/phalcon-tutorial">Back to main page</a>
+
+<?php
+if ($anekdots->count() == 0) {
+    ?>
+    <h3>No anekdots is here....</h3>
+    <?php
+} else {
+    ?>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+        <tr>
+            <th>Anekdot number</th>
+            <th>Deleted Author</th>
+            <th>Deleted Anekdot</th>
+        </tr>
+        </thead>
+        <hr>
+        <tbody>
+        <?php foreach ($anekdots as $anekdot) {
+            if ($anekdot->status === "Passive") {
+                ?>
+                <tr>
+                    <td><?php echo $anekdot->id; ?></td>
+                    <td><?php echo $anekdot->author; ?></td>
+                    <td><?php echo $anekdot->text; ?></td>
+                    <td>
+                        <?php echo $this->tag->form(["action" => "bin/revive", "method" => "post", "class" => "input", "name" => "Revive"]);
+
+                        echo $this->tag->inputSubmit($anekdot->id, "revive");
+
+                        echo Tag::endForm(); ?>
+                    </td>
+                    <td>
+                        <?php echo $this->tag->form(["action" => "bin/terminate", "method" => "post", "class" => "input", "name" => "Terminate"]);
+
+                        echo $this->tag->inputSubmit($anekdot->id, "X");
+
+                        echo Tag::endForm(); ?>
+                    </td>
+                </tr>
+                <?php
+            }
+        } ?>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="3">Anekdots quantity: <?php echo $anekdot->count(); ?></td>
+        </tr>
+        </tfoot>
+    </table>
+    <?php
+}
+?>

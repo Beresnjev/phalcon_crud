@@ -1,7 +1,8 @@
+<?php use Phalcon\Tag; ?>
+
 <h1>Welcome to FunnyAnekdots.ee!</h1>
 
 <a href="/phalcon-tutorial/anekdot-post">Post your anekdot here!</a>
-<a href="/phalcon-tutorial/bin">Trash bin</a>
 
 <?php
 if ($anekdots->count() == 0) {
@@ -21,29 +22,39 @@ if ($anekdots->count() == 0) {
         </thead>
         <hr>
         <tbody>
-        <?php foreach ($anekdots as $anekdot) { ?>
+        <?php foreach ($anekdots as $anekdot) {
+            if ($anekdot->status === "Active") {
+            ?>
             <tr>
                 <td><?php echo $anekdot->id; ?></td>
                 <td><?php echo $anekdot->author; ?></td>
                 <td><?php echo $anekdot->text; ?></td>
                 <td><?php echo $anekdot->rating; ?></td>
                 <td>
-                    <?php echo $this->tag->form(["action" => "index/rating", "method" => "post", "class" => "input", "name" => "Rating"]) ?>
-                    <p>
-                        <?php echo $this->tag->inputSubmit($anekdot->id, "+"); ?>
-                        <?php echo $this->tag->inputSubmit($anekdot->id, "-"); ?>
-<!--                        <input type="hidden" name="Id" value="--><?php //echo $anekdot->id ?><!--">-->
-                    </p>
+                    <?php echo $this->tag->form(["action" => "index/rating", "method" => "post", "class" => "input", "name" => "Rating"]);
+
+                        echo $this->tag->inputSubmit($anekdot->id, "+");
+                        echo $this->tag->inputSubmit($anekdot->id, "-");
+
+                    echo Tag::endForm(); ?>
                 </td>
                 <td>
-                    <?php echo $this->tag->form(["action" => "index/delete", "method" => "post", "class" => "input", "name" => "Delete"]) ?>
-                    <p>
-<!--                        <input hidden name="Id" value="--><?php //echo $anekdot->id ?><!--">-->
-                        <?php echo $this->tag->inputSubmit("Delete", "X"); ?>
-                    </p>
+                    <?php echo $this->tag->form(["action" => "index/delete", "method" => "post", "class" => "input", "name" => "Delete"]);
+
+                        echo $this->tag->inputSubmit($anekdot->id, "delete");
+
+                    echo Tag::endForm(); ?>
+                </td>
+                <td>
+                    <?php echo $this->tag->form(["action" => "change", "method" => "post", "class" => "input", "name" => "Change"]);
+
+                    echo $this->tag->inputSubmit($anekdot->id, "✎");
+
+                    echo Tag::endForm(); ?>
                 </td>
             </tr>
             <?php
+        }
         } ?>
         </tbody>
         <tfoot>
@@ -55,3 +66,5 @@ if ($anekdots->count() == 0) {
     <?php
 }
 ?>
+
+<a href="/phalcon-tutorial/bin">Trash bin</a>
