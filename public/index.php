@@ -49,7 +49,7 @@ $container->set(
                 'host'     => 'localhost',
                 'username' => 'root',
                 'password' => '',
-                'dbname'   => 'tutorial',
+                'dbname'   => 'phalcon_tutorial',
                 'port' => '3306'
             ]
         );
