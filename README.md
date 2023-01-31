@@ -1,4 +1,4 @@
-# phalcon-tutorial
+# phalcon_crud
 
 CREATE TABLE phalcon_tutorial.anekdots (
 	id INT NOT NULL auto_increment,
