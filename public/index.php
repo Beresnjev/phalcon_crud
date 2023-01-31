@@ -36,7 +36,7 @@ $container->set(
     'url',
     function () {
         $url = new Lalala();
-        $url->setBaseUri('/phalcon-tutorial/');
+        $url->setBaseUri('/phalcon_crud/');
         return $url;
     }
 );
@@ -49,7 +49,7 @@ $container->set(
                 'host'     => 'localhost',
                 'username' => 'root',
                 'password' => '',
-                'dbname'   => 'phalcon_tutorial',
+                'dbname'   => 'phalcon_crud',
                 'port' => '3306'
             ]
         );
@@ -61,7 +61,7 @@ $application = new Application($container);
 try {
     // Handle the request
     $url = $_SERVER['REQUEST_URI'];
-    $url = str_replace('phalcon-tutorial', '', $url);
+    $url = str_replace('phalcon_crud', '', $url);
     $url = str_replace('//', '/', $url);
     $lala = $application->handle($url);
 

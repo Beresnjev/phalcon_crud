@@ -2,10 +2,10 @@
 
 <h1>Welcome to bin section!</h1>
 
-<a href="/phalcon-tutorial">Back to main page</a>
+<a href="/phalcon_crud">Back to main page</a>
 
 <?php
-if ($anekdots->count() == 0) {
+if ($deleted_count == 0) {
     ?>
     <h3>No anekdots is here....</h3>
     <?php
@@ -25,7 +25,7 @@ if ($anekdots->count() == 0) {
             if ($anekdot->status === "Passive") {
                 ?>
                 <tr>
-                    <td><?php echo $anekdot->id; ?></td>
+                    <td><?php echo $anekdot->number; ?></td>
                     <td><?php echo $anekdot->author; ?></td>
                     <td><?php echo $anekdot->text; ?></td>
                     <td>
@@ -38,7 +38,7 @@ if ($anekdots->count() == 0) {
                     <td>
                         <?php echo $this->tag->form(["action" => "bin/terminate", "method" => "post", "class" => "input", "name" => "Terminate"]);
 
-                        echo $this->tag->inputSubmit($anekdot->id, "X");
+                        echo $this->tag->inputSubmit($anekdot->id, "❌");
 
                         echo Tag::endForm(); ?>
                     </td>
@@ -49,7 +49,7 @@ if ($anekdots->count() == 0) {
         </tbody>
         <tfoot>
         <tr>
-            <td colspan="3">Anekdots quantity: <?php echo $anekdot->count(); ?></td>
+            <td colspan="5">Anekdots quantity: <?php echo $deleted_count; ?></td>
         </tr>
         </tfoot>
     </table>

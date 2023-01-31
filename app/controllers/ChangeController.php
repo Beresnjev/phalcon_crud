@@ -13,13 +13,21 @@ class ChangeController extends Controller {
     }
 
     public function saveAction() {
+        $response = new Response();
         $post = $this->request->getPost();
         $id = array_keys($post, "save");
         $anekdot = Anekdots::findFirst($id);
         $text = $post["Text"];
-        $anekdot->text = $text;
-        $anekdot->save();
-        $response = new Response();
-        return $response->redirect();
+        if ($text == "") {
+            return $response->redirect("/change/error");
+        } else {
+            $anekdot->text = $text;
+            $anekdot->save();
+            return $response->redirect();
+        }
+    }
+
+    public function errorAction() {
+
     }
 }

@@ -6,7 +6,28 @@ use Phalcon\Http\Response;
 class BinController extends Controller {
 
     public function indexAction() {
-        $this->view->anekdots = Anekdots::find();
+        $this->numberCheckAction();
+        $anekdots = Anekdots::find();
+        $this->view->anekdots = $anekdots;
+        $deleted_count = 0;
+        foreach ($anekdots as $anekdot) {
+            if ($anekdot->status == "Passive") {
+                $deleted_count += 1;
+            }
+        }
+        $this->view->deleted_count = $deleted_count;
+    }
+
+    public function numberCheckAction() {
+        $anekdots = Anekdots::find();
+        $number = 1;
+        foreach ($anekdots as $anekdot) {
+            if ($anekdot->status == "Passive") {
+                $anekdot->number = $number;
+                $anekdot->save();
+                $number += 1;
+            }
+        }
     }
 
     public function reviveAction() {
@@ -21,7 +42,7 @@ class BinController extends Controller {
 
     public function terminateAction() {
         $post = $this->request->getPost();
-        $id = array_keys($post, "X");
+        $id = array_keys($post, "❌");
         $anekdot = Anekdots::findFirst($id);
         $anekdot->delete();
         $response = new Response();

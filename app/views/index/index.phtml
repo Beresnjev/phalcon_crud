@@ -2,10 +2,10 @@
 
 <h1>Welcome to FunnyAnekdots.ee!</h1>
 
-<a href="/phalcon-tutorial/anekdot-post">Post your anekdot here!</a>
+<a href="/phalcon_crud/anekdot-post">Post your anekdot here!</a>
 
 <?php
-if ($anekdots->count() == 0) {
+if ($funny_count == 0) {
     ?>
     <h3>No anekdots is here....</h3>
     <?php
@@ -26,15 +26,15 @@ if ($anekdots->count() == 0) {
             if ($anekdot->status === "Active") {
             ?>
             <tr>
-                <td><?php echo $anekdot->id; ?></td>
+                <td><?php echo $anekdot->number; ?></td>
                 <td><?php echo $anekdot->author; ?></td>
                 <td><?php echo $anekdot->text; ?></td>
                 <td><?php echo $anekdot->rating; ?></td>
                 <td>
                     <?php echo $this->tag->form(["action" => "index/rating", "method" => "post", "class" => "input", "name" => "Rating"]);
 
-                        echo $this->tag->inputSubmit($anekdot->id, "+");
-                        echo $this->tag->inputSubmit($anekdot->id, "-");
+                        echo $this->tag->inputSubmit($anekdot->id, "👍");
+                        echo $this->tag->inputSubmit($anekdot->id, "👎");
 
                     echo Tag::endForm(); ?>
                 </td>
@@ -59,7 +59,7 @@ if ($anekdots->count() == 0) {
         </tbody>
         <tfoot>
         <tr>
-            <td colspan="3">Anekdots quantity: <?php echo $anekdot->count(); ?></td>
+            <td colspan="7">Anekdots quantity: <?php echo $funny_count; ?></td>
         </tr>
         </tfoot>
     </table>
@@ -67,4 +67,4 @@ if ($anekdots->count() == 0) {
 }
 ?>
 
-<a href="/phalcon-tutorial/bin">Trash bin</a>
+<a href="/phalcon_crud/bin">🗑</a>
