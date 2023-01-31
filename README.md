@@ -60,4 +60,4 @@ Bin page demonstrates table of deleted from main page "**anekdots**" and allows 
 
 ***Revive*** button will restore "**anekdot**" to main page.
 
-***Red cross*** symbol will completely remove it from application.
+***Red cross*** symbol will completely remove it from application!
