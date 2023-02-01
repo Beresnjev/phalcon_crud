@@ -2,17 +2,13 @@
 
 ## Overview
 
-___
-
-Phalcon crud application is web application made with Phalcon. It represents the website "**FunnyAnekdots.ee**".
-This simple app allows to *create* "**anekdot**", *read* them, *change* its text and eventually *delete* them.
+Phalcon crud application is web application made with Phalcon framework.. It represents the website "**FunnyAnekdots.ee**".
+This simple app allows to *create* "**anekdot**", *read* them, *change* its text and, eventually, *delete* them.
 For safe measures the recycle bin feature is implemented.
-After deleting "**anekdot**" goes to bin section, where you can restore it or completely remove it.
+After deleting "**anekdot**" goes to bin section, where you can restore or completely remove it.
 Moreover, web application has the rating system. Anyone can give assessment to every "**anekdot**".
 
 ## Installation
-
-___
 
 * Install **Xampp** (php version 8.1.12)
 * Install **Phalcon** (version 5.1.4)
@@ -21,21 +17,19 @@ ___
 ```
 CREATE DATABASE phalcon_crud;
 CREATE TABLE phalcon_crud.anekdots (
-id INT NOT NULL auto_increment,
-primary key(id),
-number varchar(255) NOT NULL,
-author VARCHAR(255) NOT NULL,
-text varchar(255) NOT NULL,
-rating INT NOT NULL,
-status VARCHAR(255) NOT NULL);
+    id INT NOT NULL auto_increment,
+    primary key(id),
+    number varchar(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    text varchar(255) NOT NULL,
+    rating INT NOT NULL,
+    status VARCHAR(255) NOT NULL);
 ```
 * Set new parameters for your database in **public/index.php**
 
 And you are good to go!
 
 ## Usage
-
-___
 
 ### Main page
 
