@@ -60,7 +60,7 @@ Bin page demonstrates table of deleted from main page "**anekdots**" and allows 
 
 During building the application I was following the official [Phalcon Basic Tutorial](https://docs.phalcon.io/5.0/en/tutorial-basic).
 
-In addition, I would like to thank every staff member of [Lorex Grupp](http://www.lorexgrupp.ee/), who have helped me with many issues!
+In addition, I would like to thank every staff member of [Lorex Grupp](http://www.lorexgrupp.ee/), who have helped me with many issues.
 
 ## License
 
