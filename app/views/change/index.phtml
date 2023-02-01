@@ -7,7 +7,7 @@
 
 echo $this->tag->form(["action" => "change/save", "method" => "post", "class" => "input", "name" => "Save"]);
 
-echo $this->tag->inputText("Text", $anekdot->text); ?>
+echo $this->tag->inputText("Text", $anekdot->text, ["class" => "text"]); ?>
 <p>
     <?php echo $this->tag->inputSubmit($anekdot->id, "save"); ?>
 </p>
