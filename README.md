@@ -21,7 +21,7 @@ CREATE TABLE phalcon_crud.anekdots (
     primary key(id),
     number varchar(255) NOT NULL,
     author VARCHAR(255) NOT NULL,
-    text varchar(255) NOT NULL,
+    text TEXT(65535) NOT NULL,
     rating INT NOT NULL,
     status VARCHAR(255) NOT NULL);
 ```
@@ -55,3 +55,13 @@ Bin page demonstrates table of deleted from main page "**anekdots**" and allows 
 ***Revive*** button will restore "**anekdot**" to main page.
 
 ***Red cross*** symbol will completely remove it from application
+
+## Credits
+
+During building the application I was following the official [Phalcon Basic Tutorial](https://docs.phalcon.io/5.0/en/tutorial-basic).
+
+In addition, I would like to thank every staff member of Lorex Grupp, who have helped me with many issues.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
