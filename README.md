@@ -64,4 +64,4 @@ In addition, I would like to thank every staff member of [Lorex Grupp](http://ww
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)g
+[MIT](https://choosealicense.com/licenses/mit/)
