@@ -2,6 +2,31 @@
 
 h1 {
     color: darkorange;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+h2 {
+    padding-top: 70px;
+    padding-left: 40px;
+    padding-bottom: 100px;
+}
+
+a {
+    font-size: 30px;
+}
+
+.link {
+    display: inline-block;
+    padding: 25px;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+.link:hover {
+    background-color: darkorange;
+    transition: 1s;
 }
 
 .bin {
@@ -16,12 +41,23 @@ h1 {
     text-align: center;
 }
 
+.stroke-fix {
+    border: 1px saddlebrown;
+}
+
+.table-button {
+    border-bottom-style: hidden!important;
+    border-top-style: hidden!important;
+    border-right-style: hidden!important;
+}
+
 th {
     font-size: 20px;
 }
 
-td {
+td, th {
     min-width: 100px;
+    vertical-align: middle;
 }
 
 .text {

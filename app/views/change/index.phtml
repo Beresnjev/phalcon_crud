@@ -1,7 +1,6 @@
 
 
-<h1>Change section</h1>
-<p>Change text of anekdot:</p>
+<h1>Change text of anekdot:</h1>
 
 <?php
 
@@ -9,5 +8,5 @@ echo $this->tag->form(["action" => "change/save", "method" => "post", "class" =>
 
 echo $this->tag->inputText("Text", $anekdot->text, ["class" => "text"]); ?>
 <p>
-    <?php echo $this->tag->inputSubmit($anekdot->id, "save"); ?>
+    <?php echo $this->tag->inputSubmit($anekdot->id, "Save", ["class" => "submit"]); ?>
 </p>

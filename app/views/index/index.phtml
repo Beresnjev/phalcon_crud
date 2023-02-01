@@ -2,12 +2,16 @@
 
 <h1 class="welcome-sign">Welcome to FunnyAnekdots.ee!</h1>
 
-<a href="/phalcon_crud/anekdot-post">Post your anekdot here!</a>
+<div class="link">
+    <a href="/phalcon_crud/anekdot-post">Post your anekdot here!</a>
+</div>
+
+<hr>
 
 <?php
 if ($funny_count == 0) {
     ?>
-    <h3>No anekdots is here....</h3>
+    <h2>No anekdots is here....</h2>
     <?php
 } else {
     ?>
@@ -18,9 +22,9 @@ if ($funny_count == 0) {
             <th>Author</th>
             <th>Anekdot</th>
             <th>Rating</th>
+            <th colspan="3" class="table-button"></th>
         </tr>
         </thead>
-        <hr>
         <tbody>
         <?php foreach ($anekdots as $anekdot) {
             if ($anekdot->status === "Active") {
@@ -30,7 +34,7 @@ if ($funny_count == 0) {
                 <td><?php echo $anekdot->author; ?></td>
                 <td><?php echo $anekdot->text; ?></td>
                 <td><?php echo $anekdot->rating; ?></td>
-                <td>
+                <td class="table-button">
                     <?php echo $this->tag->form(["action" => "index/rating", "method" => "post", "class" => "input", "name" => "Rating"]);
 
                         echo $this->tag->inputSubmit($anekdot->id, "👍");
@@ -38,14 +42,14 @@ if ($funny_count == 0) {
 
                     echo Tag::endForm(); ?>
                 </td>
-                <td>
+                <td class="table-button">
                     <?php echo $this->tag->form(["action" => "index/delete", "method" => "post", "class" => "input", "name" => "Delete"]);
 
                         echo $this->tag->inputSubmit($anekdot->id, "delete");
 
                     echo Tag::endForm(); ?>
                 </td>
-                <td>
+                <td class="table-button">
                     <?php echo $this->tag->form(["action" => "change", "method" => "post", "class" => "input", "name" => "Change"]);
 
                     echo $this->tag->inputSubmit($anekdot->id, "✎");
@@ -59,7 +63,8 @@ if ($funny_count == 0) {
         </tbody>
         <tfoot>
         <tr>
-            <td colspan="7">Anekdots quantity: <?php echo $funny_count; ?></td>
+            <td colspan="4">Anekdots quantity: <?php echo $funny_count; ?></td>
+            <td colspan="3" class="table-button"></td>
         </tr>
         </tfoot>
     </table>
@@ -67,4 +72,4 @@ if ($funny_count == 0) {
 }
 ?>
 
-<a href="/phalcon_crud/bin" class="bin">🗑</a>
+<a href="/phalcon_crud/bin" class="bin link">🗑</a>

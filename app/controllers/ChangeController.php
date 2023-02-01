@@ -16,7 +16,7 @@ class ChangeController extends Controller {
     public function saveAction() {
         $response = new Response();
         $post = $this->request->getPost();
-        $id = array_keys($post, "save");
+        $id = array_keys($post, "Save");
         $anekdot = Anekdots::findFirst($id);
         $text = $post["Text"];
         if ($text == "") {

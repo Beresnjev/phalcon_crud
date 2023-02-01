@@ -1,15 +1,18 @@
-<?php
 
-echo $message;
 
-?>
+<h1 class="welcome-sign">Post error</h1>
+
+<h2>
+    <?php echo $message; ?>
+</h2>
+
 <?php if(! $success){?>
     <form action="/phalcon_crud/anekdot-post">
-        <button type="submit">Try again</button>
+        <button type="submit" class="submit">Try again</button>
     </form>
 <?php } ?>
 <br>
 <form action="/phalcon_crud">
-    <button type="submit">Go back and read some anekdots</button>
+    <button type="submit" class="submit">Go back and read some anekdots</button>
 </form>
 
