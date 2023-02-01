@@ -10,4 +10,5 @@ class Anekdots extends Model
     public $text;
     public $rating = 0;
     public $status = "Active";
+
 }
