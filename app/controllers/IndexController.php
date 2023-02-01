@@ -3,7 +3,7 @@
 use Phalcon\Mvc\Controller;
 use Phalcon\Http\Response;
 use Phalcon\Tag;
-use Phalcon\Assets\Asset\Css;
+use Phalcon\Assets\Manager;
 
 class IndexController extends Controller {
 
@@ -18,6 +18,8 @@ class IndexController extends Controller {
             }
         }
         $this->view->funny_count = $funny_count;
+
+        $this->assets->addCss("public/css/style.css");
     }
 
     public function numberCheckAction() {
