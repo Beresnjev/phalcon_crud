@@ -3,6 +3,7 @@
 use Phalcon\Mvc\Controller;
 use Phalcon\Http\Response;
 use Phalcon\Tag;
+use Phalcon\Assets\Asset\Css;
 
 class IndexController extends Controller {
 
