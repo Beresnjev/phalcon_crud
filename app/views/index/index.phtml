@@ -35,12 +35,8 @@ if ($funny_count == 0) {
                 <td><?php echo $anekdot->text; ?></td>
                 <td><?php echo $anekdot->rating; ?></td>
                 <td class="table-button">
-                    <?php echo $this->tag->form(["action" => "index/rating", "method" => "post", "class" => "input", "name" => "Rating"]);
-
-                        echo $this->tag->inputSubmit($anekdot->id, "👍");
-                        echo $this->tag->inputSubmit($anekdot->id, "👎");
-
-                    echo Tag::endForm(); ?>
+                    <a href="index/ratingAdd/id=<?php echo $anekdot->id ?>" class="rating">👍</a>
+                    <a href="index/ratingSubtract/id=<?php echo $anekdot->id ?>" class="rating">👎</a>
                 </td>
                 <td class="table-button">
                     <?php echo $this->tag->form(["action" => "index/delete", "method" => "post", "class" => "input", "name" => "Delete"]);

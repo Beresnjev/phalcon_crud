@@ -2,8 +2,6 @@
 
 use Phalcon\Mvc\Controller;
 use Phalcon\Http\Response;
-use Phalcon\Tag;
-use Phalcon\Assets\Manager;
 
 class IndexController extends Controller {
 
@@ -34,23 +32,20 @@ class IndexController extends Controller {
         }
     }
 
-    public function ratingAction() {
-        $post = $this->request->getPost();
-        if (in_array('👍', $post)) {
-            $id = array_keys($post, "👍");
-            $anekdot = Anekdots::findFirst($id);
-            $anekdot->rating += 1;
-            $anekdot->save();
-            $response = new Response();
-            return $response->redirect();
-        } else if (in_array('👎', $post)) {
-            $id = array_keys($post, "👎");
-            $anekdot = Anekdots::findFirst($id);
-            $anekdot->rating -= 1;
-            $anekdot->save();
-            $response = new Response();
-            return $response->redirect();
-        }
+    public function ratingAddAction($id) {
+        $anekdot = Anekdots::findFirst($id);
+        $anekdot->rating += 1;
+        $anekdot->save();
+        $response = new Response();
+        return $response->redirect();
+    }
+
+    public function ratingSubtractAction($id) {
+        $anekdot = Anekdots::findFirst($id);
+        $anekdot->rating -= 1;
+        $anekdot->save();
+        $response = new Response();
+        return $response->redirect();
     }
 
     public function deleteAction() {
