@@ -1,4 +1,3 @@
-<?php use Phalcon\Tag; ?>
 
 <h1 class="welcome-sign">Welcome to FunnyAnekdots.ee!</h1>
 
@@ -9,6 +8,8 @@
 <hr>
 
 <?php
+$anekdot_number = 1;
+
 if ($funny_count == 0) {
     ?>
     <h2>No anekdots is here....</h2>
@@ -30,7 +31,7 @@ if ($funny_count == 0) {
             if ($anekdot->status === "Active") {
             ?>
             <tr>
-                <td><?php echo $anekdot->number; ?></td>
+                <td><?php echo $anekdot_number; ?></td>
                 <td><?php echo $anekdot->author; ?></td>
                 <td><?php echo $anekdot->text; ?></td>
                 <td><?php echo $anekdot->rating; ?></td>
@@ -39,22 +40,15 @@ if ($funny_count == 0) {
                     <a href="index/ratingSubtract/id=<?php echo $anekdot->id ?>" class="rating">👎</a>
                 </td>
                 <td class="table-button">
-                    <?php echo $this->tag->form(["action" => "index/delete", "method" => "post", "class" => "input", "name" => "Delete"]);
-
-                        echo $this->tag->inputSubmit($anekdot->id, "delete");
-
-                    echo Tag::endForm(); ?>
+                    <a href="index/delete/id=<?php echo $anekdot->id ?>">Delete</a>
                 </td>
                 <td class="table-button">
-                    <?php echo $this->tag->form(["action" => "change", "method" => "post", "class" => "input", "name" => "Change"]);
-
-                    echo $this->tag->inputSubmit($anekdot->id, "✎");
-
-                    echo Tag::endForm(); ?>
+                    <a href="change/index/id=<?php echo $anekdot->id ?>">✎</a>
                 </td>
             </tr>
             <?php
-        }
+                $anekdot_number += 1;
+            }
         } ?>
         </tbody>
         <tfoot>

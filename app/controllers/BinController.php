@@ -30,9 +30,7 @@ class BinController extends Controller {
         }
     }
 
-    public function reviveAction() {
-        $post = $this->request->getPost();
-        $id = array_keys($post, "revive");
+    public function restoreAction($id) {
         $anekdot = Anekdots::findFirst($id);
         $anekdot->status = "Active";
         $anekdot->save();
@@ -40,9 +38,7 @@ class BinController extends Controller {
         return $response->redirect("/bin");
     }
 
-    public function terminateAction() {
-        $post = $this->request->getPost();
-        $id = array_keys($post, "❌");
+    public function terminateAction($id) {
         $anekdot = Anekdots::findFirst($id);
         $anekdot->delete();
         $response = new Response();

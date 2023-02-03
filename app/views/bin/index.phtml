@@ -1,4 +1,3 @@
-<?php use Phalcon\Tag; ?>
 
 <h1 class="welcome-sign">Welcome to bin section!</h1>
 
@@ -7,6 +6,8 @@
 </div>
 
 <?php
+$anekdot_number = 1;
+
 if ($deleted_count == 0) {
     ?>
     <h2>No anekdots is here....</h2>
@@ -28,25 +29,18 @@ if ($deleted_count == 0) {
             if ($anekdot->status === "Passive") {
                 ?>
                 <tr>
-                    <td><?php echo $anekdot->number; ?></td>
+                    <td><?php echo $anekdot_number; ?></td>
                     <td><?php echo $anekdot->author; ?></td>
                     <td><?php echo $anekdot->text; ?></td>
                     <td class="table-button">
-                        <?php echo $this->tag->form(["action" => "bin/revive", "method" => "post", "class" => "input", "name" => "Revive"]);
-
-                        echo $this->tag->inputSubmit($anekdot->id, "revive");
-
-                        echo Tag::endForm(); ?>
+                        <a href="bin/restore/id=<?php echo $anekdot->id ?>">restore</a>
                     </td>
                     <td class="table-button">
-                        <?php echo $this->tag->form(["action" => "bin/terminate", "method" => "post", "class" => "input", "name" => "Terminate"]);
-
-                        echo $this->tag->inputSubmit($anekdot->id, "❌");
-
-                        echo Tag::endForm(); ?>
+                        <a href="bin/terminate/id=<?php echo $anekdot->id ?>">❌</a>
                     </td>
                 </tr>
                 <?php
+                $anekdot_number += 1;
             }
         } ?>
         </tbody>

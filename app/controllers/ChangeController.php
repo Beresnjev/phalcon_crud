@@ -5,10 +5,7 @@ use Phalcon\Http\Response;
 
 class ChangeController extends Controller {
 
-    public function indexAction() {
-        $post = $this->request->getPost();
-        $id = array_keys($post, "✎");
-        $this->view->print_r = print_r($post, true);
+    public function indexAction($id) {
         $anekdot = Anekdots::findFirst($id);
         $this->view->anekdot = $anekdot;
     }
