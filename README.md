@@ -19,7 +19,6 @@ CREATE DATABASE phalcon_crud;
 CREATE TABLE phalcon_crud.anekdots (
     id INT NOT NULL auto_increment,
     primary key(id),
-    number varchar(255) NOT NULL,
     author VARCHAR(255) NOT NULL,
     text TEXT(65535) NOT NULL,
     rating INT NOT NULL,
