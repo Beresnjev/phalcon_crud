@@ -1,6 +1,13 @@
 
-
-<h1 class="welcome-sign">Post error</h1>
+<?php
+if ($message == "Well done! You have posted your anekdot! Very funny!") {
+    ?> <h1 class="welcome-sign">Success</h1>
+<?php
+} else {
+    ?> <h1 class="welcome-sign">Error</h1>
+<?php
+}
+?>
 
 <h2>
     <?php echo $message; ?>
