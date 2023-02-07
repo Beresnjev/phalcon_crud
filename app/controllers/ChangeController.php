@@ -13,7 +13,8 @@ class ChangeController extends Controller {
     public function saveAction() {
         $response = new Response();
         $post = $this->request->getPost();
-        $id = array_keys($post, "Save");
+        echo print_r($post, true);
+        $id = array_keys($post, "SaveInput");
         $anekdot = Anekdots::findFirst($id);
         $text = $post["Text"];
         if ($text == "") {

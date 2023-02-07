@@ -28,7 +28,7 @@ if ($funny_count == 0) {
         </thead>
         <tbody>
         <?php foreach ($anekdots as $anekdot) {
-            if ($anekdot->status === "Active") {
+            if ($anekdot->status == "Active") {
             ?>
             <tr>
                 <td><?php echo $anekdot_number; ?></td>
@@ -36,14 +36,14 @@ if ($funny_count == 0) {
                 <td><?php echo $anekdot->text; ?></td>
                 <td><?php echo $anekdot->rating; ?></td>
                 <td class="table-button">
-                    <a href="index/ratingAdd/id=<?php echo $anekdot->id ?>" class="rating">👍</a>
-                    <a href="index/ratingSubtract/id=<?php echo $anekdot->id ?>" class="rating">👎</a>
+                    <a href="index/ratingAdd/id=<?php echo $anekdot->id ?>" class="anekdot-action">👍</a>
+                    <a href="index/ratingSubtract/id=<?php echo $anekdot->id ?>" class="anekdot-action">👎</a>
                 </td>
                 <td class="table-button">
-                    <a href="index/delete/id=<?php echo $anekdot->id ?>">Delete</a>
+                    <a href="index/delete/id=<?php echo $anekdot->id ?>" class="anekdot-action">Delete</a>
                 </td>
                 <td class="table-button">
-                    <a href="change/index/id=<?php echo $anekdot->id ?>">✎</a>
+                    <a href="change/index/id=<?php echo $anekdot->id ?>" class="anekdot-action">✎</a>
                 </td>
             </tr>
             <?php

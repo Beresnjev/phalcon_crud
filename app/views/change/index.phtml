@@ -4,9 +4,10 @@
 
 <?php
 
-echo $this->tag->form(["action" => "change/save", "method" => "post", "class" => "input", "name" => "Save"]);
+echo $this->tag->form(["action" => "../save", "method" => "post", "class" => "input", "name" => "Save"]);
 
 echo $this->tag->inputText("Text", $anekdot->text, ["class" => "text"]); ?>
 <p>
-    <?php echo $this->tag->inputSubmit($anekdot->id, "Save", ["class" => "submit"]); ?>
+    <input type="hidden" name="anekdotId" value="<?php echo $anekdot->id ?>">
+    <?php echo $this->tag->inputSubmit("SaveInput", "Save", ["class" => "submit"]); ?>
 </p>

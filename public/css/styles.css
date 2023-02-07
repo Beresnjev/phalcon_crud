@@ -67,3 +67,8 @@ td, th {
 .submit {
     margin-top: 25px;
 }
+
+.anekdot-action {
+    display: inline-block;
+    text-decoration: none!important;
+}
